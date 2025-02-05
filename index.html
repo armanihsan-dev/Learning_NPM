@@ -3,11 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
-    <script src="script.js" type="module"></script>
+    <title>NPM Detailed Notes</title>
+    <script src="script.js" type="modules"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.8;
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+      ul,
+      ol {
+        margin-left: 20px;
+      }
+      code {
+        background-color: #ecf0f1;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+      .note {
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-left: 4px solid #3498db;
+        margin: 10px 0;
+      }
+    </style>
   </head>
   <body>
-    <h1>NPM crash course</h1>
+    <h1>NPM (Node Package Manager) Detailed Notes</h1>
+
+    <h2>Introduction</h2>
+    <p>
+      NPM stands for Node Package Manager. It is a tool used to manage
+      JavaScript packages and dependencies for Node.js projects. It is the
+      default package manager for Node.js and comes bundled with it.
+    </p>
+
+    <h2>Advantages: Why We Use NPM?</h2>
+    <ul>
+      <li>
+        <strong>Dependency Management:</strong> Allows you to easily manage and
+        update dependencies for your project.
+      </li>
+      <li>
+        <strong>Removes Global Space Conflicts:</strong> By installing packages
+        locally, it prevents global namespace pollution and version conflicts.
+      </li>
+      <li>
+        <strong>Access to Open-Source Libraries:</strong> Provides access to a
+        vast library of reusable JavaScript code.
+      </li>
+      <li>
+        <strong>Automates Tasks:</strong> Simplifies tasks like bundling,
+        minifying, testing, and more.
+      </li>
+    </ul>
+
+    <h2>How NPM Works</h2>
+    <p>
+      NPM works by maintaining a registry of packages (also known as modules).
+      These packages can be downloaded and installed into your project via the
+      command line. It also manages a file called <code>package.json</code>,
+      which keeps track of the dependencies and scripts for your project.
+    </p>
+
+    <h2>Check NPM Version</h2>
+    <p>
+      To check if NPM is installed and see its version, use the following
+      command in your terminal:
+    </p>
+    <pre><code>npm -v</code></pre>
+    <p>This will display the currently installed version of NPM.</p>
+
+    <h2>What is <code>node_modules</code>?</h2>
+    <p>
+      The <code>node_modules</code> folder is where NPM installs all the
+      dependencies for your project. It contains the actual source code of the
+      libraries you install, as well as their sub-dependencies. This folder
+      should generally not be modified manually.
+    </p>
+    <div class="note">
+      <strong>Tip:</strong> The <code>node_modules</code> folder is typically
+      ignored in version control using a <code>.gitignore</code> file.
+    </div>
+
+    <h2>Creating an NPM Project</h2>
+    <p>
+      Creating an NPM project is similar to initializing a Git repository.
+      Here’s how:
+    </p>
+    <ol>
+      <li>Navigate to your project folder in the terminal.</li>
+      <li>
+        Run the command <code>npm init</code> and follow the prompts to set up
+        your project.
+      </li>
+      <li>
+        This creates a <code>package.json</code> file, which contains
+        information about your project and its dependencies.
+      </li>
+    </ol>
+
+    <h2>Setting <code>"type": "module"</code> in <code>package.json</code></h2>
+    <p>
+      To use ES modules (import/export syntax) in your project, you need to add
+      the following line in your <code>package.json</code> file:
+    </p>
+    <pre><code>{
+  "type": "module"
+}</code></pre>
+    <p>
+      This allows you to use modern JavaScript syntax like
+      <code>import</code> and <code>export</code>.
+    </p>
+
+    <h2>Bundlers and Parcel</h2>
+    <p>
+      A bundler is a tool that combines multiple JavaScript files, along with
+      other assets like CSS and images, into a single file. This improves
+      performance by reducing the number of HTTP requests.
+    </p>
+    <ul>
+      <li>
+        <strong>Popular Bundlers:</strong> Webpack, Parcel, Vite, and Rollup.
+      </li>
+      <li>
+        <strong>Why Parcel?</strong> Parcel is easy to set up, fast, and
+        supports zero-configuration bundling.
+      </li>
+    </ul>
+
+    <h2>Setting Up Parcel</h2>
+    <p>To use Parcel in your project, follow these steps:</p>
+    <ol>
+      <li>Install Parcel as a dev dependency:</li>
+      <pre><code>npm i parcel -D</code></pre>
+      <li>
+        Create an <code>index.html</code> file and include your JavaScript file:
+      </li>
+      <pre><code>&lt;script src="script.js" type="module"&gt;&lt;/script&gt;</code></pre>
+    </ol>
+
+    <h2>Starting a Parcel Server</h2>
+    <p>
+      Once Parcel is set up, you can start a local development server with the
+      following command:
+    </p>
+    <pre><code>npx parcel index.html</code></pre>
+    <p>
+      This will host your application on <code>http://localhost:1234</code>,
+      enabling live reloading for changes.
+    </p>
   </body>
 </html>
